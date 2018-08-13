@@ -1,2 +1,5 @@
-# social-media-analyses
-Various notebooks/projects supporting analysis of social media
+#### Social Media Analysis Repo
+
+This repository contains various projects, notebooks, etc. supporting analysis of social media (Twitter, mostly).
+
+See individual sub-directories for specifics.
