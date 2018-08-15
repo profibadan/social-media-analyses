@@ -29,7 +29,7 @@ createBasePlot <- function(accountsDf) {
     scale_y_continuous(trans='log', breaks=c(1, 10, 150, 3000, 60000), labels=comma) +
     scale_color_brewer(type = 'qual', palette = 'Dark2') +
     theme_economist_white() +
-    theme(panel.grid.minor = element_blank(), legend.text = element_text(size=10)) +
+    theme(panel.grid.minor = element_blank(), legend.text = element_text(size=12)) +
     labs(x='Maximum Cumulative Followers of the Account (Log Scale)', y='Total Tweets by the Account (Log Scale)',
          title='Volume of Tweets and Number of Followers of Russian IRA Twitter Accounts',
          subtitle='Tweets published on or after October 1, 2014',
@@ -74,5 +74,6 @@ accountDays <- accountDays %>%
   )) %>% select(-followerDelta)
 
 # animated plot!
-animate(createBasePlot(accountDays) + transition_time(publish_date) + labs(subtitle='Cumulative tweets published vs. followers as of {frame_time}'),
+animate(createBasePlot(accountDays) + transition_time(publish_date) +
+          labs(subtitle='Cumulative tweets published vs. followers as of {frame_time}', x='Followers of the Account (Log Scale)'),
         nframes = 120, length = 20, height=700, width=800)
